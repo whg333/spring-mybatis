@@ -18,9 +18,14 @@ public class ContactController {
 	@Autowired
 	private ContactService contactService;
 
-	@RequestMapping(value="/findContactList")
-	public Map<String, Object> findContactList(@RequestParam int id){
-		return contactService.findContactList(id);
+	@RequestMapping(value="/findAllContacts")
+	public Map<String, Object> findAllContacts(){
+		return contactService.findAllContacts();
 	}
+	
+//	@RequestMapping(value="/findContactList")
+//	public Map<String, Object> findContactList(@RequestParam int id){
+//		return contactService.findContactList(id);
+//	}
 	
 }

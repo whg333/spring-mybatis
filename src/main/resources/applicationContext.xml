@@ -32,15 +32,15 @@
 			</list>
 		</property>
 	</bean>
-
+	
 	<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:mybatis/jdbc.properties</value>
+				<value>classpath:mybatis/h2/jdbc.properties</value>
 			</list>
 		</property>
 	</bean>
-	
+
 	<import resource="classpath:mybatis/jdbc.xml" />
 
 </beans>

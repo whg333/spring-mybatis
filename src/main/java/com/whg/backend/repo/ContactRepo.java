@@ -1,8 +1,24 @@
 package com.whg.backend.repo;
 
-import org.springframework.stereotype.Repository;
+import java.util.List;
 
-@Repository
-public class ContactRepo {
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Select;
 
+import com.whg.backend.bo.Contact;
+
+public interface ContactRepo {
+
+	Contact findContact(int id);
+
+	boolean addContact(Contact contact);
+	
+	boolean saveContact(Contact contact);
+	
+	List<Contact> findAllContacts();
+	
+	int findMaxContactId();
+	
 }

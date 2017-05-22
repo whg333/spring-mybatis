@@ -42,7 +42,7 @@ public class ControllerInterceptor implements HandlerInterceptor {
     	//HttpHeaderContext.addHttp(request, headerMap(request));
     	//logger.info(headerMap(request).toString());
     	String queryStr = request.getQueryString();
-    	logger.info(handler.getClass().getName()+", "+request.getRequestURI()+", "+request.getMethod()
+    	logger.info(ReflectUtil.getField(handler, "bean").getClass().getSimpleName()+", "+request.getRequestURI()+", "+request.getMethod()
     		+", "+paramMap(request)+(queryStr == null ? "" : ", "+queryStr));
     	
     	//返回json格式，其实mvc.xml的mappingJacksonHttpMessageConverter会自动处理了

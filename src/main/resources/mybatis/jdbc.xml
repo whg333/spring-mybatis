@@ -42,12 +42,12 @@
 	<!-- MyBatis扫描typeAliasesPackage的包以类名作为别名，mapperLocations扫描xml配置文件 -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	    <property name="dataSource" ref="dataSource" />
-	    <property name="typeAliasesPackage" value="com.skylinematrix.dragonComming.repo.entity"/>
-	    <property name="mapperLocations" value="classpath*:com/skylinematrix/dragonComming/repo/**/*.xml" />
+	    <property name="typeAliasesPackage" value="com.whg.backend.bo"/>
+	    <property name="mapperLocations" value="classpath*:com/whg/backend/repo/mapper/*.xml" />
 	</bean>
 	<!-- MyBatis自动扫描Mapper接口生成动态代理，并注入sqlSession后注册Mapper到Spring容器 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-	  <property name="basePackage" value="com.skylinematrix.dragonComming.repo.mapper"/>
+	  <property name="basePackage" value="com.whg.backend.repo.mapper"/>
 	</bean>
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
