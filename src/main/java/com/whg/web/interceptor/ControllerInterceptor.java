@@ -20,8 +20,6 @@ public class ControllerInterceptor implements HandlerInterceptor {
 
 	private static final Logger logger = LoggerFactory.getLogger(ControllerInterceptor.class);
 	
-	public static final boolean readRequestBytes = false;
-	
     /** 
      * 在业务处理器处理请求之前被调用<br>
      * <br>
@@ -47,13 +45,6 @@ public class ControllerInterceptor implements HandlerInterceptor {
     	
     	//返回json格式，其实mvc.xml的mappingJacksonHttpMessageConverter会自动处理了
     	//response.setContentType("application/json;charset=UTF-8");
-    	
-    	//跨域许可，支持HTTP方法等信息，其实web.xml里面配置处理了
-    	//response.setHeader("access-control-allow-origin", "*");
-    	//response.setHeader("Access-Control-Allow-Credentials", "true");
-    	//response.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-    	//response.setHeader("Access-Control-Max-Age", "1000");
-    	//response.setHeader("Access-Control-Allow-Headers", "Content-Type, Content-Range, Content-Disposition, Content-Description");
     	
     	return true;
     }
