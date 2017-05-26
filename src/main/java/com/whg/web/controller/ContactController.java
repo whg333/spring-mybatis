@@ -43,7 +43,7 @@ public class ContactController {
 	
 	private ModelAndView addOrUpdate(int id){
 		boolean isEdit = id > 0;
-		ModelAndView view = new ModelAndView("/WEB-INF/jsp/contact/edit");
+		ModelAndView view = new ModelAndView("contact/edit");
 		if(isEdit){
 			Contact contact = contactService.findContact(id);
 			view.addObject("contact", contact);
@@ -55,7 +55,7 @@ public class ContactController {
 	@RequestMapping(value="/findAllContacts")
 	public ModelAndView findAllContacts(){
 		List<Contact> contactList = contactService.findAllContacts();
-		ModelAndView view = new ModelAndView("/WEB-INF/jsp/contact/index");
+		ModelAndView view = new ModelAndView("contact/index");
 		view.addObject("contactList", contactList);
 		return view;
 	}

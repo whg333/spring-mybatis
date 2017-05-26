@@ -50,15 +50,16 @@
 												<td>${contact.email}</td>
 												<td>${contact.address}</td>
 												<td>${contact.telephone}</td>
-												<td><a class="edit" href="${pageContext.request.contextPath}/contactController/editContact.do?id=${contact.id}">编辑</a></td>
-												<td><a class="delete" id="${contact.id}" href="${pageContext.request.contextPath}/contactController/deleteContact.do?id=${contact.id}">删除</a></td>
+												<td><a class="edit" href="${pageContext.request.contextPath}/contactController/editContact.do?id=${contact.id}"><img src="${pageContext.request.contextPath}/static/images/edit.png"></a></td>
+												<td><a class="delete" id="${contact.id}" href="${pageContext.request.contextPath}/contactController/deleteContact.do?id=${contact.id}"><img src="${pageContext.request.contextPath}/static/images/delete.png"></a></td>
 											</tr>
 										</c:forEach>
 									</table>
 								</div>
 							</c:if>
-							<span class="detail-right">
-								<input id="newContact" type="button" class="btn btn-default btn-sm" value="新增联系人">
+							<span id="newContact" class="detail-right" style="width:90%;padding-right: 5px;">
+								<a href="#"><img src="${pageContext.request.contextPath}/static/images/add.png"></a>
+								<input style="font-size:15px;" type="button" class="btn btn-default btn-sm" value="新增联系人">
 							</span>
 						</div>
 					</div>
