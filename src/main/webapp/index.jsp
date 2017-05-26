@@ -6,7 +6,7 @@
 <title>index</title>
 </head>
 <body>
-	<p>spring mybatis!!!</p>
+	<p>spring mybatis !!!</p>
 	<a href="${pageContext.request.contextPath}/contactController/findAllContacts.do">我的联系人列表</a>
 </body>
 </html>
