@@ -40,4 +40,9 @@ public class ContactRepoImpl implements ContactRepo{
 		return contactMapper.selectMaxId();
 	}
 	
+	@Override
+	public boolean deleteContact(int id) {
+		return contactMapper.deleteById(id) == 1;
+	}
+	
 }

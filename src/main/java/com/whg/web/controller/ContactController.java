@@ -5,20 +5,27 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.whg.backend.service.ContactService;
 
 @Controller
-@ResponseBody
 @RequestMapping("/contactController")
 public class ContactController {
 	
 	@Autowired
 	private ContactService contactService;
+	
+	@RequestMapping(value="/deleteContact")
+	public String deleteContact(@RequestParam int id){
+		//contactService.deleteContact(id);
+		return "redirect:findAllContacts.form";
+	}
 
 	@RequestMapping(value="/findAllContacts")
+	@ResponseBody
 	public ModelAndView findAllContacts(){
 		Map<String, Object> result = contactService.findAllContacts();
 		ModelAndView view = new ModelAndView("/WEB-INF/jsp/contact/index");

@@ -2,6 +2,7 @@ package com.whg.backend.repo.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.ResultMap;
@@ -13,7 +14,7 @@ public interface ContactMapper {
 
 	@Select("SELECT * FROM contact WHERE id=#{id}")
 	@ResultMap("com.whg.backend.repo.mapper.ContactMapper.ContactResult")
-	Contact selectById(long id);
+	Contact selectById(int id);
 
 	@Insert("INSERT INTO contact(name, email, address, telephone) VALUES (#{name}, #{email}, #{address}, #{telephone})")
 	@Options(useGeneratedKeys=true, keyProperty="id")
@@ -27,4 +28,8 @@ public interface ContactMapper {
 	
 	@Select("SELECT MAX(id) from contact")
 	int selectMaxId();
+	
+	@Delete("DELETE FROM contact WHERE id=#{id}")
+	int deleteById(int id); 
+	
 }

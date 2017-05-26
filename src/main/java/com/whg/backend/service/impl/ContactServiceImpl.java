@@ -18,9 +18,15 @@ public class ContactServiceImpl implements ContactService{
 	private ContactRepo contactRepo;
 	
 	@Override
+	public Map<String, Object> deleteContact(int id) {
+		contactRepo.deleteContact(id);
+		return findAllContacts();
+	}
+	
+	@Override
 	public Map<String, Object> findAllContacts() {
-		Map<String, Object> result = new HashMap<String, Object>();
 		List<Contact> contactList = contactRepo.findAllContacts();
+		Map<String, Object> result = new HashMap<String, Object>();
 		result.put("contactList", contactList);
 		return result;
 	}

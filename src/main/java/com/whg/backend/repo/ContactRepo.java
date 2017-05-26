@@ -2,11 +2,6 @@ package com.whg.backend.repo;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Options;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-
 import com.whg.backend.bo.Contact;
 
 public interface ContactRepo {
@@ -20,5 +15,7 @@ public interface ContactRepo {
 	List<Contact> findAllContacts();
 	
 	int findMaxContactId();
+	
+	boolean deleteContact(int id);
 	
 }

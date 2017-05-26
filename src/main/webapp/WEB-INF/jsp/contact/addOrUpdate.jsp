@@ -27,13 +27,7 @@
 		});
 
 		$(".del").click(function() {
-			var cid = $(this).attr("cid");
-			confirm("确定删除id="+cid+"的联系人记录？")
-			//if(confirm("确定删除id="+cid+"的联系人记录？")){
-				//$("#form").attr("action", "${pageContext.request.contextPath}/contactController/deleteContact.form");
-				//$("#id").val(cid);
-				//$('#form').submit();
-			//}
+			return confirm("确定删除该记录？");
 		});
 	});
 </script>
@@ -48,10 +42,8 @@
 					<div id="layout-t" class="tab-product tab-sub-3 ui-style-gradient">
 						<div class="tab-bd dom-display" style="min-height: 800px">
 							<c:if test="${not empty result['contactList']}">
-								<div class="detail-table" style="margin-top: 20px; width: 98%; margin-left: 15px;">
-									<form method='post' id='form' name='form'>
-										<input type='hidden' id='id' name='id'>
-									</form>
+								<div class="detail-table"
+									style="margin-top: 20px; width: 98%; margin-left: 15px;">
 									<table class="table table-striped">
 										<tr>
 											<td>id</td>
@@ -70,17 +62,17 @@
 												<td>${contact.address}</td>
 												<td>${contact.telephone}</td>
 												<td><a class="del"
-													href="${pageContext.request.contextPath}/contactController/deleteContact.form?id=${contact.id}">编辑</a></td>
-												<!-- <td><a class="del" href="#" cid="${contact.id}">删除</a></td> -->
-												<td><a class="del" href="${pageContext.request.contextPath}/contactController/deleteContact.form?id=${contact.id}" cid="${contact.id}">删除</a></td>
+													href="${pageContext.request.contextPath}/jsp/globalController.jsp?userId=${userGacha.key }&op=4">编辑</a></td>
+												<td><a class="del"
+													href="${pageContext.request.contextPath}/jsp/globalController.jsp?userId=${userGacha.key }&op=4">删除</a></td>
 											</tr>
 										</c:forEach>
 									</table>
 								</div>
+								<span class="detail-right"> 
+									<input id="add" type="button" class="btn btn-default btn-sm" value="新增联系人">
+								</span>
 							</c:if>
-							<span class="detail-right">
-								<input id="add" type="button" class="btn btn-default btn-sm" value="新增联系人">
-							</span>
 						</div>
 					</div>
 				</div>
