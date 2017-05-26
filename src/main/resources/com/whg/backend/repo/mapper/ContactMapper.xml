@@ -10,7 +10,7 @@
     <result column="telephone" property="telephone" jdbcType="VARCHAR"/>
   </resultMap>
   
-  <update id="saveContact" parameterType="Contact">
+  <update id="update" parameterType="Contact">
     UPDATE contact 
     <set>
     	<if test="name != null">name=#{name},</if>

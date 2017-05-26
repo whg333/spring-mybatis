@@ -16,33 +16,33 @@ public class ContactRepoImpl implements ContactRepo{
 	private ContactMapper contactMapper;
 
 	@Override
-	public Contact findContact(int id) {
-		return contactMapper.selectById(id);
-	}
-
-	@Override
 	public boolean addContact(Contact contact) {
 		return contactMapper.insert(contact) == 1;
 	}
+	
+	@Override
+	public boolean deleteContact(int id) {
+		return contactMapper.deleteById(id) == 1;
+	}
 
 	@Override
-	public boolean saveContact(Contact contact) {
-		return contactMapper.update(contact) == 1;
+	public Contact findContact(int id) {
+		return contactMapper.selectById(id);
 	}
 
 	@Override
 	public List<Contact> findAllContacts() {
 		return contactMapper.selectAll();
 	}
+	
+	@Override
+	public boolean saveContact(Contact contact) {
+		return contactMapper.update(contact) == 1;
+	}
 
 	@Override
 	public int findMaxContactId() {
 		return contactMapper.selectMaxId();
-	}
-	
-	@Override
-	public boolean deleteContact(int id) {
-		return contactMapper.deleteById(id) == 1;
 	}
 	
 }

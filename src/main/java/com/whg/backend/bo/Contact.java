@@ -11,13 +11,16 @@ public class Contact {
 	public Contact(){
 		
 	}
-	
-	public Contact(int id, String name) {
-		this.id = id;
+
+	public Contact(String name, String email, String address, String telephone) {
+		fill(name, email, address, telephone);
+	}
+
+	public void fill(String name, String email, String address, String telephone) {
 		this.name = name;
-		this.email = name+"@dataguru.cn";
-		this.address = name+"_address";
-		this.telephone = name+"_telephone";
+		this.email = email;
+		this.address = address;
+		this.telephone = telephone;
 	}
 
 	@Override
@@ -56,4 +59,5 @@ public class Contact {
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+	
 }

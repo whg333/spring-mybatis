@@ -1,11 +1,10 @@
 package com.whg.backend.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 import com.whg.backend.bo.Contact;
 import com.whg.backend.repo.ContactRepo;
@@ -18,17 +17,31 @@ public class ContactServiceImpl implements ContactService{
 	private ContactRepo contactRepo;
 	
 	@Override
-	public Map<String, Object> deleteContact(int id) {
-		contactRepo.deleteContact(id);
-		return findAllContacts();
+	public void addContact(String name, String email, String address, String telephone) {
+		Contact contact = new Contact(name, email, address, telephone);
+		Assert.isTrue(contactRepo.addContact(contact));
 	}
 	
 	@Override
-	public Map<String, Object> findAllContacts() {
-		List<Contact> contactList = contactRepo.findAllContacts();
-		Map<String, Object> result = new HashMap<String, Object>();
-		result.put("contactList", contactList);
-		return result;
+	public void deleteContact(int id) {
+		Assert.isTrue(contactRepo.deleteContact(id));
+	}
+	
+	@Override
+	public Contact findContact(int id) {
+		return contactRepo.findContact(id);
+	}
+	
+	@Override
+	public List<Contact> findAllContacts() {
+		return contactRepo.findAllContacts();
+	}
+
+	@Override
+	public void saveContact(int id, String name, String email, String address, String telephone) {
+		Contact contact = contactRepo.findContact(id);
+		contact.fill(name, email, address, telephone);
+		Assert.isTrue(contactRepo.saveContact(contact));
 	}
 	
 }

@@ -1,11 +1,19 @@
 package com.whg.backend.service;
 
-import java.util.Map;
+import java.util.List;
+
+import com.whg.backend.bo.Contact;
 
 public interface ContactService {
 
-	Map<String, Object> deleteContact(int id);
+	void addContact(String name, String email, String address, String telephone);
 	
-	Map<String, Object> findAllContacts();
+	void deleteContact(int id);
+	
+	Contact findContact(int id);
+	
+	List<Contact> findAllContacts();
+	
+	void saveContact(int id, String name, String email, String address, String telephone);
 	
 }

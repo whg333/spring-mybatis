@@ -37,7 +37,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>spring-web</servlet-name>
-		<url-pattern>*.form</url-pattern> 
+		<url-pattern>*.do</url-pattern> 
 	</servlet-mapping>
 
 	<!--

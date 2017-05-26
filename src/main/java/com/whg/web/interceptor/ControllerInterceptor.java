@@ -112,7 +112,9 @@ public class ControllerInterceptor implements HandlerInterceptor {
     	}
     	
     	int status = Integer.parseInt(statusStr);
-		if(status != HttpServletResponse.SC_OK){
+    	if(status == HttpServletResponse.SC_MOVED_TEMPORARILY){
+    		logger.info(serverName+" : "+handler+" : "+statusStr+" REDIRECT");
+    	}else if(status != HttpServletResponse.SC_OK){
 			logger.error(serverName+"\n"+handler+"\n"+statusStr+" ERROR");
 		}
     }

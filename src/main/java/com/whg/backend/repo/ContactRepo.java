@@ -6,16 +6,16 @@ import com.whg.backend.bo.Contact;
 
 public interface ContactRepo {
 
-	Contact findContact(int id);
-
 	boolean addContact(Contact contact);
 	
-	boolean saveContact(Contact contact);
+	boolean deleteContact(int id);
+	
+	Contact findContact(int id);
 	
 	List<Contact> findAllContacts();
 	
-	int findMaxContactId();
+	boolean saveContact(Contact contact);
 	
-	boolean deleteContact(int id);
+	int findMaxContactId();
 	
 }
