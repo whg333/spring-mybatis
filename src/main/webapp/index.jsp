@@ -7,6 +7,6 @@
 </head>
 <body>
 	<p>spring mybatis!!!</p>
-	<a href="${pageContext.request.contextPath}/contactController/findAllContacts.do">我的联系人</a>
+	<a href="${pageContext.request.contextPath}/contactController/findAllContacts.do">我的联系人列表</a>
 </body>
 </html>
